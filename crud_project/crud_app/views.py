@@ -35,13 +35,14 @@ def destroy(request,id):
 def edit(request, id):
     employee=Employee.objects.get(id=id)
     if request.method == "POST":
-        form = EmployeeForm(request.POST, )
+        form = EmployeeForm(request.POST, instance=employee)
         if form.is_valid():
             try:
-                employee.ename = form.cleaned_data['ename']
-                employee.eemail = form.cleaned_data['eemail']
-                employee.econtact = form.cleaned_data['econtact']
-                employee.save()
+                # employee.ename = form.cleaned_data['ename']
+                # employee.eemail = form.cleaned_data['eemail']
+                # employee.econtact = form.cleaned_data['econtact']
+                # employee.save()
+                form.save()
         
                 return redirect("emp_list")
             except:
