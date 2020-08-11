@@ -17,12 +17,12 @@ def emp(request):
     else:
         form = EmployeeForm()
 
-    return render(request,'index.html',{'form':form})
+    return render(request,'crud_app/index.html',{'form':form})
 
 
 def show(request):
     employees=Employee.objects.all()
-    return render(request,"show.html",{'employees':employees})
+    return render(request,"crud_app/show.html",{'employees':employees})
 
 
 
@@ -50,7 +50,7 @@ def edit(request, id):
     else:
         form = EmployeeForm()
 
-    return render(request,'edit.html',{'employee':employee})
+    return render(request,'crud_app/edit.html',{'employee':employee})
 
 
 
@@ -60,4 +60,4 @@ def update(request,id):
     if form.is_valid():
         form.save()
         return redirect("/show")
-    return render(request,'edit.html',{'employee':employee})
+    return render(request,'crus_app/edit.html',{'employee':employee})
