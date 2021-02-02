@@ -10,7 +10,7 @@
         </div>
         <h2><a class="article-title" href="#">{{ post.title }}</a></h2>
         <p class="article-content">{{ post.content }}</p>
-        <p class="text-muted"><a href="#">Edit</a><a href="#" class="ml-2">Delete</a></p>
+        <p class="text-muted"><a href="{% url 'edit-blog' post.id %}">Edit</a><a href="/blog/delete/{{ post.id }}" class="ml-2">Delete</a></p>
     </div>
 </article>
 {% endfor %}
